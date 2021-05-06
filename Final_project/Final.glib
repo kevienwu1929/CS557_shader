@@ -1,0 +1,60 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+CubeMap 6 right.bmp  left.bmp  top.bmp  bottom.bmp   front.bmp  back.bmp
+
+CubeMap 7 right.bmp  left.bmp  top.bmp  bottom.bmp   front.bmp  back.bmp
+
+Vertex texture.vert
+Fragment texture.frag
+Program Texture uTexUnit 6
+
+Texture2D  6  right.bmp
+QuadYZ 5. 5. 10 10
+
+Texture2D  6  left.bmp
+QuadYZ -5. 5. 10 10
+
+Texture2D  6  top.bmp
+QuadXZ 5. 5. 10 10
+
+Texture2D  6  bottom.bmp
+QuadXZ -5. 5. 10 10
+
+Texture2D  6  front.bmp
+QuadXY 5. 5. 10 10
+
+Texture2D  6  back.bmp
+QuadXY -5. 5. 10 10
+
+
+Vertex   sun.vert
+Fragment sun.frag
+Program  Sun                                              \
+        uAd <.005 .01 .015>  uBd <.005 .01 .015>                \
+        uNoiseAmp <0.35 0.5 1.>  uNoiseFreq <4. 9. 15.>     	\
+        uKa <0. 0.3 1.0>  uKd <0. 0.3 1.0>  uKs <0. 0.3 1.0>    \
+        uShininess <1. 10. 1000.>                               \
+        uTol <0. 0. 1.>											\
+		uAlpha <0. 1. 1.> 
+
+
+Color 1. .9 0
+Sphere
+
+
+Vertex      outer.vert
+Geometry    outer.geom
+Fragment    outer.frag
+Program     outer                                           \
+        uLevel <0 2 5>                                            \
+        uGravity <-3. 0. 3.>                                      \
+        uVelScale <1. 1 5.>                                    
+        
+
+Color 1. .9 0
+Sphere
+
+
+
